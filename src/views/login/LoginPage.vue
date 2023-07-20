@@ -1,9 +1,7 @@
 <template>
     <v-container class="my-auto">
-        <v-img 
-            :max-width="smAndUp ? '25%' : '50%'"
-            class="mx-auto mb-6" 
-            src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Logo_Locaweb_2017.png" 
+        <ImgComponent 
+            class="mx-auto"
         />
         <v-btn @click="globalStore.swapTheme">mudar tema dev</v-btn>
         <v-row>
@@ -56,11 +54,10 @@
 <script setup lang="ts">
 import router from "@/router";
 import { useGlobalStore } from "@/stores/GlobalStore";
-import { useDisplay } from "vuetify/lib/framework.mjs";
+import ImgComponent from "@/components/ImgComponent.vue"
 
 const globalStore = useGlobalStore()
 
-const { smAndUp } = useDisplay()
 </script>
 
 <style scoped>
