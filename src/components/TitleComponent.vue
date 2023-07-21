@@ -5,10 +5,11 @@
 </template>
 
 <script setup lang="ts">
+import { ITitle } from '@/Interface/ITitle';
 import { defineProps } from 'vue';
 
-const props = defineProps({
-    header: Object
+const props: ITitle = defineProps({
+    header: Object,
 })
 
 </script>
