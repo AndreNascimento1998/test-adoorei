@@ -1,27 +1,27 @@
 <template>
     <v-container >
         <ImgComponent
-            class="mx-auto"
+            class="mx-auto "
         />
-        <v-row>
+        <v-row class="text-center mt-4">
             <v-col cols="12">
-                <section>Você está muito próximo de mudar  a forma de</section>
-                <p>hospedar seu site</p>
-                <span>Escolha seu plano</span>
-            </v-col>
-            <v-col cols="2" offset="5">
-                <v-btn >
-                    Mais usado
-                </v-btn>
+                <HeaderPlain 
+                    :header="header"
+                />
             </v-col>
         </v-row>
 
         <v-row>
-            <v-col v-for="(item, index) in lists" :key="index" cols="4" class="text-center">
+            <v-col 
+            v-for="(item, index) in listsHeaderPlain" 
+                :key="index" 
+                cols="12"
+                sm="4"
+                class=" mt-4"
+            >
                 <ListPlain 
                     :item="item"
                 />
-                
             </v-col>
         </v-row>
     </v-container>
@@ -29,28 +29,19 @@
 
 <script setup lang="ts">
 import ImgComponent from "@/components/ImgComponent.vue"
+import HeaderPlain from "./Partials/HeaderPlain.vue";
 import ListPlain from "./Partials/ListPlain.vue";
 import { usePlanListStore } from "@/stores/PlanListStore"
 import { computed, ComputedRef } from "vue"
 import { IPlainList } from "../../Interface/IPlainList";
 
-
 const planListStore = usePlanListStore()
 
-const lists: ComputedRef<Array<IPlainList>> = computed(() => planListStore.planList)
+const header = computed(() => planListStore.header)
+const listsHeaderPlain: ComputedRef<Array<IPlainList>> = computed(() => planListStore.planList)
 
 </script>
 
 <style scoped>
-h3 {
-    font-style: italic;
-}
 
-h2 {
-    color: #F11A40;
-}
-
-span {
-    font-size: 12px;
-}
 </style>
