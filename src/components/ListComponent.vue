@@ -1,16 +1,15 @@
 <template>
     <v-list 
         lines="one" 
-        density="compact" 
+        density="comfortable" 
         class="pa-0" 
-        variant="outlined"
         rounded
     >
         <h4 style="font-style: italic;" class="pa-2">{{ title }}</h4>
         <v-list-item 
             v-for="(item, index) in props.list" 
             :key="index"
-            class="pa-2"
+            prepend-icon="mdi-check"
         >
             {{ item }}
         </v-list-item>

@@ -3,6 +3,12 @@ import { reactive } from "vue";
 
 
 export const usePlanListStore = defineStore('planList', () => {
+    const header = reactive({
+        title: 'hospedar seu site',
+        desc: 'Você está muito próximo de mudar a forma de',
+        choosePlan: 'Escolha seu plano'
+    })
+
     const planList = reactive([
         {
             title: 'Hospedagem 1',
@@ -32,7 +38,8 @@ export const usePlanListStore = defineStore('planList', () => {
                 'Certificado SSL Grátis',
                 'Transferência ilimitada'
             ],
-            suport: 'Suport 24 horas. 7 dias por semana grátis;'
+            suport: 'Suport 24 horas. 7 dias por semana grátis;',
+            moreUse: false
         },
         {
             title: 'Hospedagem 2',
@@ -64,10 +71,11 @@ export const usePlanListStore = defineStore('planList', () => {
                 'Certificado SSL Grátis',
                 'Transferência ilimitada'
             ],
-            suport: 'Suport 24 horas. 7 dias por semana grátis;'
+            suport: 'Suport 24 horas. 7 dias por semana grátis;',
+            moreUse: true
         },
         {
-            title: 'Hospedagem 2',
+            title: 'Hospedagem 3',
             tip: 999,
             desc: 'cobrado mensalmente em taxa de setup',
             desc2: 'Ideal para site com mais de 60k de visitas',
@@ -96,12 +104,14 @@ export const usePlanListStore = defineStore('planList', () => {
                 'Certificado SSL Grátis',
                 'Transferência ilimitada'
             ],
-            suport: 'Suport 24 horas. 7 dias por semana grátis;'
+            suport: 'Suport 24 horas. 7 dias por semana grátis;',
+            moreUse: false
         },
         
     ])
 
     return {
+        header,
         planList
     }
 })
