@@ -5,7 +5,7 @@
         />
         <v-row class="text-center mt-4">
             <v-col cols="12">
-                <HeaderPlain 
+                <TitleComponent 
                     :header="header"
                 />
             </v-col>
@@ -19,7 +19,7 @@
                 sm="4"
                 class=" mt-4"
             >
-                <ListPlain 
+                <ListPlan 
                     :planList="item"
                 />
             </v-col>
@@ -28,9 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import ImgComponent from "@/components/ImgComponent.vue"
-import HeaderPlain from "../../components/TitleComponent.vue";
-import ListPlain from "./Partials/ListPlain.vue";
+import ImgComponent from "@/components/Img/ImgComponent.vue"
+import TitleComponent from "../../components/Title/TitleComponent.vue";
+import ListPlan from "../../components/List/ListPlanComponent.vue";
 import { usePlanListStore } from "@/stores/PlanListStore"
 import { computed, ComputedRef, reactive } from "vue"
 import { IPlainList } from "../../Interface/IPlainList";

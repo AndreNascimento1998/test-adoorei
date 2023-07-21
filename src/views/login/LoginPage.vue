@@ -15,7 +15,7 @@
 <script setup lang="ts">
 
 import { useGlobalStore } from "@/stores/GlobalStore";
-import ImgComponent from "@/components/ImgComponent.vue"
+import ImgComponent from "@/components/Img/ImgComponent.vue"
 import FormLogin from "./Partials/FormLogin.vue"
 
 const globalStore = useGlobalStore()
