@@ -4,13 +4,13 @@ export interface IPlainList {
     tip: number
     desc: string
     desc2: string
- /*    titleServers: string 
+    titleServers: string 
     servers: Array<string>
     titleApp: string
     appAvaliable: Array<string>
     migrationTitle?: string
     migration?: Array<string>
-    titleMore: string */
+    titleMore: string
     more: Array<string>
     suport?: string
     moreUse: boolean
