@@ -15,7 +15,7 @@
         </v-list-item>
         <h4 
             v-show="props.suport?.length" 
-            class="mt-4"
+            class="mt-4 pa-2"
         >
             {{ props.suport }}
         </h4>
