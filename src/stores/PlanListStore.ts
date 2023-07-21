@@ -3,18 +3,18 @@ import { reactive } from "vue";
 
 
 export const usePlanListStore = defineStore('planList', () => {
-    const header = reactive({
-        title: 'hospedar seu site',
-        desc: 'Você está muito próximo de mudar a forma de',
-        choosePlan: 'Escolha seu plano'
-    })
-
+ 
     const planList = reactive([
         {
+            id: 1,
             title: 'Hospedagem 1',
             tip: 0,
             desc: 'Você não paga nada para usar sem taxa de setup',
             desc2: 'Ideal para quem está começando',
+            suport: 'Suport 24 horas. 7 dias por semana grátis;',
+            moreUse: false,
+            
+
             titleServers: 'Seu site no servidor no Estados Unidos',
             servers: [
                 'Servidores em nossos data center americanos',
@@ -23,12 +23,14 @@ export const usePlanListStore = defineStore('planList', () => {
                 '1 contas de e-mails profissionais',
                 '1 subdomínio gratuito'
             ],
+
             titleApp: 'Aplicativos disponíveis',
             appAvaliable: [
                 'Wordpress', 
                 'Drupal', 
                 'Entre outros...'
             ],
+
             titleMore: 'Você ainda tem',
             more: [
                 'Webmail RoundCube', 
@@ -38,15 +40,17 @@ export const usePlanListStore = defineStore('planList', () => {
                 'Certificado SSL Grátis',
                 'Transferência ilimitada'
             ],
-            suport: 'Suport 24 horas. 7 dias por semana grátis;',
-            moreUse: false
         },
         {
+            id: 2,
             title: 'Hospedagem 2',
             tip: 499,
             desc: 'cobrado mensalmente em taxa de setup',
             desc2: 'Ideal para site com mais de 30k de visitas',
             titleServers: 'Seu site em servidores no Brasil',
+            suport: 'Suport 24 horas. 7 dias por semana grátis;',
+            moreUse: true,
+
             servers: [
                 'Servidores em São Paulo',
                 'Asp, Asp.NET',
@@ -54,14 +58,17 @@ export const usePlanListStore = defineStore('planList', () => {
                 '30 contas de e-mails profissionais',
                 '10 subdomínio gratuito'
             ],
+
             titleApp: 'Aplicativos disponíveis',
             appAvaliable: [
                 'Wordpress', 
                 'Drupal', 
                 'Entre outros...'
             ],
+            
             migrationTitle: 'Migração Gratuita',
             migration: ['Migramos todos seus sites para nossos servidores'], 
+
             titleMore: 'Você ainda tem',
             more: [
                 'Webmail RoundCube', 
@@ -71,14 +78,16 @@ export const usePlanListStore = defineStore('planList', () => {
                 'Certificado SSL Grátis',
                 'Transferência ilimitada'
             ],
-            suport: 'Suport 24 horas. 7 dias por semana grátis;',
-            moreUse: true
         },
         {
+            id: 3,
             title: 'Hospedagem 3',
             tip: 999,
             desc: 'cobrado mensalmente em taxa de setup',
             desc2: 'Ideal para site com mais de 60k de visitas',
+            suport: 'Suport 24 horas. 7 dias por semana grátis;',
+            moreUse: false,
+
             titleServers: 'Seu site em servidores no Brasil',
             servers: [
                 'Servidores em São Paulo',
@@ -87,14 +96,17 @@ export const usePlanListStore = defineStore('planList', () => {
                 'Ilimitados contas de e-mails profissionais',
                 '50 subdomínio gratuito'
             ],
+
             titleApp: 'Aplicativos disponíveis',
             appAvaliable: [
                 'Wordpress', 
                 'Drupal', 
                 'Entre outros...'
             ],
+
             migrationTitle: 'Migração Gratuita',
             migration: ['Migramos todos seus sites para nossos servidores'], 
+
             titleMore: 'Você ainda tem',
             more: [
                 'Webmail RoundCube', 
@@ -104,14 +116,11 @@ export const usePlanListStore = defineStore('planList', () => {
                 'Certificado SSL Grátis',
                 'Transferência ilimitada'
             ],
-            suport: 'Suport 24 horas. 7 dias por semana grátis;',
-            moreUse: false
         },
         
     ])
 
     return {
-        header,
         planList
     }
 })
