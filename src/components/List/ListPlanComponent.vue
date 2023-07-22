@@ -15,7 +15,7 @@
         :height="props.height ? props.height : ''"
         
     >
-        <div class="text-center">
+        <div class="text-center ">
             <ListPlanHeader 
                 :planList="props.planList"
             />

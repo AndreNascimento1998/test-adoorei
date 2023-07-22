@@ -1,10 +1,10 @@
 <template>
-    <h2>{{ props.planList.title }}</h2>
-    <h1 v-if="props.planList.tip !== 0" class="mt-2"><span class="mounth">R$</span>{{ props.planList.tip }}/<span class="mounth">Mês</span> </h1>
-    <h1 v-else class="mt-2">Grátis</h1>
-    <span>{{ props.planList.desc }}</span>
+    <span class="sm">{{ props.planList.title }}</span>
+    <p v-if="props.planList.tip !== 0" class="mt-2 mb-2 md-h1"><span class="mounth">R$</span>{{ props.planList.tip }}/<span class="mounth">Mês</span> </p>
+    <h1 v-else class="mt-2 mb-2 md-h1">Grátis</h1>
+    <span class="desc">{{ props.planList.desc }}</span>
     <v-divider class="mt-2 mb-2" />
-    <section>{{ props.planList.desc2 }}</section>
+    <section class="desc">{{ props.planList.desc2 }}</section>
     <v-divider class="mt-2 mb-2" />
 </template>
 
@@ -17,15 +17,22 @@ const props = defineProps({
 </script>
 
 <style scoped>
-h2{
+.sm{
+    font-size: 28px;
     color: rgb(71, 67, 67);
 }
 
-h1{
+.md-h1{
+    font-size: 32px;
+    font-weight: bold;
     color: #F11A40;
 }
 
-.mounth {
-    font-size: 20px;
+.md-mounth {
+    font-size: 11px;
+}
+
+.desc {
+    font-size: 16px;
 }
 </style>
