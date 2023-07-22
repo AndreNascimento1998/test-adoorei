@@ -9,7 +9,6 @@ export default class HttpInterceptor {
     constructor(httpClient: AxiosInstance) {
         this.httpClient = httpClient
 
-        //this.checkToken()
         this.setup()
     }
 
@@ -49,6 +48,7 @@ export default class HttpInterceptor {
     }
 
     /* private checkToken() {
+        Quando eu criar a api para validar o tempo de expiração do token
         if (!HttpToken.getToken() && window.location.pathname !== '/login') {
             HttpToken.clearToken()
 

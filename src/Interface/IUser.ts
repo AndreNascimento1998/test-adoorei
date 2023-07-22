@@ -1,5 +1,6 @@
 
 export interface IUser {
+    idProduct: string
     name: string
     phone: string
     email: string

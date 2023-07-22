@@ -1,6 +1,7 @@
 import { IUser } from "@/Interface/IUser"
 
 export default class UserDto implements IUser {
+    idProduct: string
     name: string
     phone: string
     email: string
@@ -14,7 +15,9 @@ export default class UserDto implements IUser {
         email = '',
         password = '', 
         validPassword = '',
-        siteName = ''}: Partial<IUser> = {}) {
+        siteName = '',
+        idProduct = ''}: Partial<IUser> = {}) {
+            this.idProduct = idProduct
             this.name = name
             this.phone = phone
             this.email = email
