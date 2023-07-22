@@ -1,5 +1,5 @@
 <template>
-    <v-app :theme="theme">
+    <v-app :theme="theme" :class="[theme == 'light' ? 'bg-grey-lighten-5' : 'bg-grey-darken-4']" >
        <v-overlay v-model="loading" class="align-center justify-center">
             <v-progress-circular color="#F11A40" indeterminate size="64" />
         </v-overlay>
