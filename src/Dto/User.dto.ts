@@ -1,0 +1,26 @@
+import { IUser } from "@/Interface/IUser"
+
+export default class UserDto implements IUser {
+    name: string
+    phone: string
+    email: string
+    password: string
+    validPassword: string
+    siteName: string
+
+    constructor({
+        name = '',
+        phone = '',
+        email = '',
+        password = '', 
+        validPassword = '',
+        siteName = ''}: Partial<IUser> = {}) {
+            this.name = name
+            this.phone = phone
+            this.email = email
+            this.password = password
+            this.validPassword = validPassword
+            this.siteName = siteName
+
+    }
+}
