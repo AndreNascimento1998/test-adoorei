@@ -1,11 +1,27 @@
 <template>
-    <span class="sm">{{ props.planList.title }}</span>
-    <p v-if="props.planList.tip !== 0" class="mt-2 mb-2 md-h1"><span class="mounth">R$</span>{{ props.planList.tip }}/<span class="mounth">Mês</span> </p>
-    <h1 v-else class="mt-2 mb-2 md-h1">Grátis</h1>
-    <span class="desc">{{ props.planList.desc }}</span>
-    <v-divider class="mt-2 mb-2" />
-    <section class="desc">{{ props.planList.desc2 }}</section>
-    <v-divider class="mt-2 mb-2" />
+    <v-row>
+        <v-col cols="12">
+            <span class="sm">{{ props.planList.title }}</span>
+        </v-col>
+
+        <v-col cols="12" class="py-0">
+            <p v-if="props.planList.tip !== 0" class="mt-2 md-h1"><span class="mounth">R$</span>{{ props.planList.tip }}/<span class="mounth">Mês</span> </p>
+    
+            <h1 v-else class="mt-2 md-h1">Grátis</h1>
+        </v-col>
+
+        <v-col cols="12">
+            <span style="font-size: 14px;" v-html="props.planList.desc" />
+        </v-col>
+
+        <v-divider class="mt-2 mb-2" />
+
+        <v-col cols="12">
+            <section style="font-size: 19px;" v-html="props.planList.desc2"></section>
+        </v-col>
+
+        <v-divider class="mt-2 mb-2" />
+    </v-row>
 </template>
 
 <script setup lang="ts">

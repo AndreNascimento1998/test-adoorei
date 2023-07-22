@@ -13,6 +13,7 @@
     </v-row>
     <v-card 
         :height="props.height ? props.height : ''"
+        elevation="0"
         
     >
         <div class="text-center ">
