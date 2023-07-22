@@ -14,14 +14,16 @@
 
 
         <v-row>
+
             <v-col 
                 cols="12" 
                 sm="5" 
-                offset-sm="2" 
                 class="mt-6"
+                offset-sm="2"
             >
                 <FormRegister />
             </v-col>
+
 
             <v-col 
                 v-for="(item, index) in chosenList" 
@@ -32,11 +34,12 @@
                 <ListPlain 
                     :planList="item"
                     enableOverflow
-                    :textHeight="470"
+                    :textHeight="408"
                     redirectButtonText="Trocar plano"
                     redirectButtonLink="/planos"
                 />
             </v-col>
+
         </v-row>
     </v-container>
 </template>
