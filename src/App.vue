@@ -1,6 +1,6 @@
 <template>
     <v-app :theme="theme">
-        <v-overlay v-model="loading" class="align-center justify-center">
+       <v-overlay v-model="loading" class="align-center justify-center">
             <v-progress-circular color="#F11A40" indeterminate size="64" />
         </v-overlay>
             <router-view />
