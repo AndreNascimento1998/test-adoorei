@@ -2,7 +2,6 @@ import UserDto from "@/Dto/User.dto";
 import User from "@/entity/User";
 import UserHttp from "@/services/UserHttp";
 import { defineStore } from "pinia";
-import { reactive } from "vue";
 
 
 export const useUserStore = defineStore('user', () => {

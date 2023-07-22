@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 
 export const useGlobalStore = defineStore('global', () => {
-    const theme = ref('dark')
+    const theme = ref('light')
 
     const loadingPage = ref(false)
 
