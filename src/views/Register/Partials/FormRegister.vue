@@ -60,7 +60,11 @@
             />
 
             <v-col>
-                <v-btn block variant="outlined">
+                <v-btn 
+                    @click="saveUser"
+                    block 
+                    variant="outlined"
+                >
                     Cria Conta
                 </v-btn>
             </v-col>
@@ -69,8 +73,25 @@
 </template>
 
 <script setup lang="ts">
+import User from "@/entity/User";
+import router from "@/router";
+import { useUserStore } from "@/stores/UserStore";
 import { reactive } from "vue";
 
+const userStore = useUserStore()
+
+async function saveUser() {
+    const result = await userStore.saveUser(register)
+    console.log(`Usuário cadastrado: ${result}`)
+
+    //Como fakeApi não retorna usuário válido simularemos 
+    //o login com o usuário que a mesma permite validar
+    const userObj = new User('mor_2314', '83r5^_')
+    const userValidate = await userStore.singIn(userObj)
+    if(userValidate) {
+        router.push('/home')
+    }
+}
 
 const register = reactive({
     name: '',
