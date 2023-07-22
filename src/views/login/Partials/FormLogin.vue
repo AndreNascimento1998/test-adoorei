@@ -7,6 +7,7 @@
         <v-form fast-fail @submit.prevent>
         <v-col class="px-2 py-0">
             <v-text-field
+                v-model="user.username"
                 variant="outlined"  
                 placeholder="aaaaa.aa14@ig.com"
                 persistent-placeholder
@@ -16,17 +17,18 @@
         </v-col>
         <v-col class="px-2 py-0 text-end">
             <v-text-field
-            variant="outlined"
-            density="compact"
-            placeholder="Sua senha"
-            persistent-placeholder
-            type="password"
-            label="Senha"
+                v-model="user.password"
+                variant="outlined"
+                density="compact"
+                placeholder="Sua senha"
+                persistent-placeholder
+                label="Senha"
             />
             <span class="recover-pass">Esqueceu a senha?</span>
         </v-col>
             <v-col cols="12" class="pa-2 mt-2">
                 <v-btn 
+                    @click="singIn"
                     variant="outlined" 
                     block 
                 >
@@ -57,10 +59,26 @@
 </template>
 
 <script setup lang="ts">
+import User from "@/entity/User";
 import router from "@/router";
+import { useUserStore } from "@/stores/UserStore";
+import { reactive } from "vue";
 import { useDisplay } from "vuetify/lib/framework.mjs";
 
 const {smAndUp} = useDisplay()
+const authStore = useUserStore()
+const user = reactive({
+    username: '',
+    password: ''
+})
+
+async function singIn() {
+    const userObj = new User(user.username, user.password)
+    const userValidate = await authStore.singIn(userObj)
+    if(userValidate) {
+        router.push('/home')
+    }
+}
 </script>
 
 <style scoped>
