@@ -1,31 +1,38 @@
 <template>
     <v-card>
-        <v-card-title class="mt-2">
-            <h3>Entra na sua conta</h3>
-            <p class="sub-title">Para acessar sua conta informe o email e senha</p>
+        <v-card-title class="mt-2 px-0">
+            <h3 class="px-2">Entra na sua conta</h3>
+            <p class="sub-title px-2 mb-2">Informe o email e senha.</p>
         </v-card-title>
-        <v-form fast-fail @submit.prevent>
-        <v-col class="px-2 py-0">
-            <v-text-field
-                v-model="user.username"
-                variant="outlined"  
-                placeholder="aaaaa.aa14@ig.com"
-                persistent-placeholder
-                density="compact"
-                label="Email"
-            />
-        </v-col>
-        <v-col class="px-2 py-0 text-end">
-            <v-text-field
-                v-model="user.password"
-                variant="outlined"
-                density="compact"
-                placeholder="Sua senha"
-                persistent-placeholder
-                label="Senha"
-            />
-            <span class="recover-pass">Esqueceu a senha?</span>
-        </v-col>
+        <v-form fast-fail ref="form" @submit.prevent>
+            <v-col class="px-2 mb-2">
+                <v-text-field
+                    v-model="user.username"
+                    variant="outlined"  
+                    placeholder="andre_celtics"
+                    persistent-placeholder
+                    density="compact"
+                    label="Username"
+                    :rules="emailValid"
+                />
+            </v-col>
+            <v-col class="px-2 ">
+                <v-text-field
+                    v-model="user.password"
+                    :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                    :type="show1 ? 'text' : 'password'"
+                    @click:append="show1 = !show1"
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Sua senha"
+                    persistent-placeholder
+                    label="Senha"
+                    :rules="passValid"
+                />
+            <v-col class="pa-0 text-end">
+                <span class="recover-pass pa-1">Esqueceu a senha?</span>
+            </v-col>
+            </v-col>
             <v-col cols="12" class="pa-2 mt-2">
                 <v-btn 
                     @click="singIn"
@@ -62,9 +69,18 @@
 import User from "@/entity/User";
 import router from "@/router";
 import { useUserStore } from "@/stores/UserStore";
-import { reactive } from "vue";
+import { computed, reactive, ref } from "vue";
 import { useDisplay } from "vuetify/lib/framework.mjs";
+import useValidation from '@/composables/useValidation'
+import Swal from 'sweetalert2'
 
+const { 
+    required, 
+    passMin, 
+} = useValidation()
+
+const form = ref()
+const show1 = ref()
 const {smAndUp} = useDisplay()
 const authStore = useUserStore()
 const user = reactive({
@@ -72,11 +88,22 @@ const user = reactive({
     password: ''
 })
 
+const emailValid = computed(() => [required ])
+const passValid = computed(() => [required, passMin])
 async function singIn() {
-    const userObj = new User(user.username, user.password)
-    const userValidate = await authStore.singIn(userObj)
-    if(userValidate) {
-        router.push('/home')
+    const {valid} = await form.value.validate()
+    if(valid) {
+        const userObj = new User(user.username, user.password)
+        const userValidate = await authStore.singIn(userObj)
+        if(userValidate) {
+            router.push('/home')
+        }
+    }else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ooops...',
+            text: 'Por favor complete as informações!',
+        })
     }
 }
 </script>
@@ -88,7 +115,7 @@ async function singIn() {
 }
 
 p{
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .font-hover {
@@ -97,6 +124,7 @@ p{
 }
 
 .recover-pass {
+    cursor: pointer;
     font-size: 12px;
     font-style: italic;
 }
