@@ -5,6 +5,8 @@ import { ref } from "vue";
 export const useGlobalStore = defineStore('global', () => {
     const theme = ref('dark')
 
+    const loadingPage = ref(false)
+
     function swapTheme() {
         if(theme.value === 'light') {
             theme.value = 'dark'
@@ -15,6 +17,7 @@ export const useGlobalStore = defineStore('global', () => {
 
     return {
         swapTheme,
-        theme
+        theme,
+        loadingPage
     }
 })
