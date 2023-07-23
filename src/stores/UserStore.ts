@@ -14,8 +14,13 @@ export const useUserStore = defineStore('user', () => {
         return await UserHttp.save(user)
     }
 
+    async function fetchUserById(id: string) {
+        return await UserHttp.fetchById(id)
+    }
+
     return {
         singIn,
-        saveUser
+        saveUser,
+        fetchUserById
     }
 })

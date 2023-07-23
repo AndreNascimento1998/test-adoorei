@@ -104,12 +104,6 @@ const {
     arrobaRequired
 } = useValidation()
 
-const validName = computed(() => [required, minLenght])
-const validEmail = computed(() => [required, arrobaRequired])
-const validPass = computed(() => [ passMinRegister, required ])
-const validOutherPass = computed(() => [ passMinRegister, required, samePass])
-const validPhone = computed(() => [required, phoneMin])
-
 const register = reactive({
     idProduct: '',
     name: '',
@@ -119,11 +113,20 @@ const register = reactive({
     validPassword: '',
     siteName: ''
 })
+const validName = computed(() => [required, minLenght])
+const validEmail = computed(() => [required, arrobaRequired])
+const validPass = computed(() => [ passMinRegister, required ])
+const validOutherPass = computed(() => [ passMinRegister, required, samePass])
+const validPhone = computed(() => [required, phoneMin])
+
+
+onMounted(() => {
+    register.idProduct = route.params.id
+})
 
 const samePass = (value: string) => value == register.password || 'As senhas estão diferentes!'
 
 async function saveUser() {
-    debugger
     const { valid } = await form.value.validate()
     if(valid){
         const result = await userStore.saveUser(register)
@@ -144,9 +147,5 @@ async function saveUser() {
         })
     }
 }
-
-onMounted(() => {
-    register.idProduct = route.params.id
-})
 
 </script>

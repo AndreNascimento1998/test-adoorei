@@ -64,10 +64,12 @@ const header: ITtile = reactive({
 })
 
 onMounted(async () => {
-    returnList(route.params.id)
+    const id = route.params.id
+    const idString = Array.isArray(id) ? id[0] : id
+    returnList(idString)
 })
 
-function returnList(id) {
+function returnList(id: string) {
     const list = planListStore.planList.find((list) => list.id == id)
     chosenList.value.push(list)
 }

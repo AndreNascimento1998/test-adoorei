@@ -31,6 +31,12 @@ class UserHttp extends HttpClient {
 
         return await this.post(path, user)
     }
+
+    public async fetchById(id: string) {
+        const path = `users/${id}`
+
+        return await this.get(path)
+    }
 }
 
 export { UserHttp }
