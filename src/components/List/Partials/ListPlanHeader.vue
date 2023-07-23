@@ -5,7 +5,7 @@
         </v-col>
 
         <v-col cols="12" class="py-0">
-            <p v-if="props.planList.tip !== 0" class="mt-2 md-h1"><span class="mounth">R$</span>{{ props.planList.tip }}/<span class="mounth">Mês</span> </p>
+            <p v-if="props.planList.tip !== 0" class="mt-2 md-h1"><span class="md-mounth">R$</span>{{ props.planList.tip }}<span class="md-mounth">/Mês</span> </p>
     
             <h1 v-else class="mt-2 md-h1">Grátis</h1>
         </v-col>
@@ -34,18 +34,20 @@ const props = defineProps({
 
 <style scoped>
 .sm{
-    font-size: 28px;
+    font-size: 24px;
+    font-weight: 600;
     color: rgb(71, 67, 67);
 }
 
 .md-h1{
-    font-size: 32px;
+    font-size: 30px;
     font-weight: bold;
     color: #F11A40;
 }
 
 .md-mounth {
-    font-size: 11px;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .desc {
