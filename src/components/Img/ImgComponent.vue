@@ -1,10 +1,10 @@
 <template>
     <v-img 
-    style="cursor: pointer;"
-    @click="globalStore.swapTheme"
-    :max-width="smAndUp ? '20%' : '50%'"
-    class="mb-6" 
-    :src="logo" 
+        style="cursor: pointer;"
+        @click="globalStore.swapTheme"
+        :max-width="smAndUp ? '20%' : '50%'"
+        class="mb-6" 
+        :src="logo" 
     />
 </template>
 

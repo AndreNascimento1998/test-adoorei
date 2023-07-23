@@ -4,6 +4,20 @@ import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
     {
+        path: '/top-bar',
+        name: 'top-bar',
+        component: () => import('@/views/Menu/MenuPage.vue'),
+        meta: { requireAuth: true },
+        children: [
+            {
+                path: '/home',
+                name: 'home',
+                component: () => import('@/views/Home/HomePage.vue'),
+                meta: { requireAuth: true },
+            }
+        ]
+    },
+    {
         path:'/',
         name: 'login',
         component: () => import('@/views/login/LoginPage.vue'),
@@ -18,12 +32,6 @@ const routes: Array<RouteRecordRaw> = [
         name: 'cadastro',
         component: () => import('@/views/Register/RegisterPage.vue')
     },
-    {
-        path: '/home',
-        name: 'home',
-        component: () => import('@/views/Home/HomePage.vue'),
-        meta: { requireAuth: true },
-    }
 ]
 
 const router = createRouter({
