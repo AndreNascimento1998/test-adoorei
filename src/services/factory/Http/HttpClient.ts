@@ -24,20 +24,20 @@ export default abstract class HttpClient {
         return this.instance
     }
 
-    protected get<T = any, R = AxiosResponse<T>, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<R> {
-        return this.request<T, R, D>(config ?? { method: 'get', url })
+    protected async get<T = any, R = AxiosResponse<T>, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<R> {
+        return await this.request<T, R, D>(config ?? { method: 'get', url })
     }
 
-    protected post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
-        return this.request(config ?? { method: 'post', url, data })
+    protected async post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+        return await this.request(config ?? { method: 'post', url, data })
     }
 
-    protected put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
-        return this.request(config || { method: 'put', url, data })
+    protected async put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
+        return await this.request(config || { method: 'put', url, data })
     }
 
-    protected delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
-        return this.request(config || { method: 'delete', url })
+    protected async delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
+        return await this.request(config || { method: 'delete', url })
     }
 
     private async request<T = any, R = AxiosResponse<T>, D = any>(config: AxiosRequestConfig<D>): Promise<R> {

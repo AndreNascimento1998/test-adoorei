@@ -2,6 +2,7 @@
 const useValidation = () => {
     const required = (value: any) => !!value || '*Campo obrigatório'
     const passMin = (value: any) => value.length > 5 || '*Maior que 5 dígitos'
+    const passMinRegister = (value: any) => value.length > 8 || '*Maior que 8 dígitos'
     const minLenght = (value: any) => value.length > 8 || '*Maior que 8 dígitos'
     const phoneMin = (value: any) => value.length > 13 || '*Maior que 13 dígitos'
     const arrobaRequired = (value: any) => /@/.test(value) || '*@ obrigatório'
@@ -12,7 +13,8 @@ const useValidation = () => {
         passMin,
         minLenght,
         phoneMin,
-        arrobaRequired
+        arrobaRequired,
+        passMinRegister
     }
 }
 

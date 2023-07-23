@@ -3,7 +3,7 @@
         <ImgComponent 
             class="mx-auto"
         />
-        <v-row>
+        <v-row>  
             <v-col cols="12" sm="4" offset-sm="4">  
                 <FormLogin />
             </v-col>
@@ -14,6 +14,5 @@
 <script setup lang="ts">
 import ImgComponent from "@/components/Img/ImgComponent.vue"
 import FormLogin from "./Partials/FormLogin.vue"
-
 
 </script>
