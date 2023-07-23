@@ -54,7 +54,7 @@
 
             />
 
-            <v-divider class="mt-2 mb-2"/>
+            <v-divider class="mt-2 mb-2 mx-4"/>
 
             <v-col>
                 <h1>Dados do seu site</h1>
@@ -69,6 +69,43 @@
                 hint="Exatamente igual ao título do site"
                 persistent-hint
             />
+
+            <v-divider class="mx-4"/>
+
+            <v-col cols="12">
+                <v-checkbox 
+                    v-model="checkbox" 
+                    color="#F11A40"
+                    :rules="validCheckbox"
+                >
+                    <template v-slot:label>
+                        <div 
+                            class="text-label mt-6" 
+                            :class="globalStore.theme == 'dark' ? 'light' : 'dark'"
+                        >
+                            <span>{{ labelText }}</span>
+                            <v-tooltip location="bottom">
+                                <template v-slot:activator="{ props }">
+                                    <a
+                                        target="_blank"
+                                        href="https://github.com/AndreNascimento1998"
+                                        v-bind="props"
+                                        class="text-label"
+                                        :class="globalStore.theme == 'dark' ? 'light' : 'dark'"
+                                        @click.stop
+                                    > 
+                                        <span class="link-label"> termos de uso </span>
+                                        <span>e </span>
+                                        <span class="link-label">políticas de privacidade.</span>
+                                    </a>
+                                </template>
+                                    Termos de condição de uso
+                            </v-tooltip>
+                        </div>
+                    </template>
+                </v-checkbox>
+            </v-col>
+            
 
             <v-col>
                 <v-btn 
@@ -87,6 +124,7 @@
 import useValidation from "@/composables/useValidation";
 import User from "@/entity/User";
 import router from "@/router";
+import { useGlobalStore } from "@/stores/GlobalStore";
 import { useUserStore } from "@/stores/UserStore";
 import Swal from "sweetalert2";
 import { computed, onMounted, reactive, ref } from "vue";
@@ -95,6 +133,11 @@ import { useRoute } from "vue-router";
 const form = ref()
 const userStore = useUserStore()
 const route = useRoute()
+
+const globalStore = useGlobalStore()
+const checkbox = ref(false)
+const labelText = 'Ao concluir com seu cadastro você con com nossos'
+
 
 const { 
     required, 
@@ -113,6 +156,8 @@ const register = reactive({
     validPassword: '',
     siteName: ''
 })
+
+const validCheckbox = computed(() => [required])
 const validName = computed(() => [required, minLenght])
 const validEmail = computed(() => [required, arrobaRequired])
 const validPass = computed(() => [ passMinRegister, required ])
@@ -148,4 +193,31 @@ async function saveUser() {
     }
 }
 
+function termsRoute() {
+    const url = 'https://github.com/AndreNascimento1998'
+    window.open(url, '_blank')
+}
 </script>
+
+<style scoped>
+.dark {
+    color: black;
+}
+
+.light {
+    color: white;
+}
+.inverse {
+    flex-direction: row-reverse !important;
+    flex-direction: column-reverse !important;
+}
+
+.text-label {
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.link-label {
+    text-decoration: underline;
+}
+</style>

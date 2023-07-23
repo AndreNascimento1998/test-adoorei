@@ -13,12 +13,12 @@
         </v-row>
 
 
-        <v-row>
+        <v-row :class="{'inverse-smScree': !smAndUp}">
 
             <v-col 
                 cols="12" 
-                sm="5" 
-                class="mt-6"
+                sm="5"
+                class="mt-6 "
                 offset-sm="2"
             >
                 <FormRegister />
@@ -34,7 +34,7 @@
                 <ListPlain 
                     :planList="item"
                     enableOverflow
-                    :textHeight="408"
+                    :textHeight="512"
                     redirectButtonText="Trocar plano"
                     redirectButtonLink="/planos"
                 />
@@ -53,6 +53,7 @@ import FormRegister from "./Partials/FormRegister.vue";
 import ImgComponent from "@/components/Img/ImgComponent.vue";
 import TitleComponent from "@/components/Title/TitleComponent.vue";
 import { ITtile } from "@/Interface/ITitle";
+import { useDisplay } from "vuetify/lib/framework.mjs";
 
 const route = useRoute()
 const chosenList = ref([])
@@ -62,6 +63,8 @@ const header: ITtile = reactive({
     desc: 'Você está muito próximo de mudar a forma de',
     title: 'Hospedar seu site'
 })
+
+const {smAndUp} = useDisplay()
 
 onMounted(async () => {
     const id = route.params.id
@@ -74,3 +77,10 @@ function returnList(id: string) {
     chosenList.value.push(list)
 }
 </script>
+
+<style scoped>
+
+.inverse-smScree {
+    flex-direction: column-reverse;
+}
+</style>
