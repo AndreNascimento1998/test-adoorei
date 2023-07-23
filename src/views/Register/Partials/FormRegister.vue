@@ -4,13 +4,14 @@
             <h1>Dados Pessoais</h1>
             <span>informe seus dados pessoais para acesso à sua conta</span>
         </v-col>
-        <v-form>
+        <v-form ref="form">
             <v-text-field 
                 v-model="register.name"
                 class="pa-3"
                 label="Nome Completo"
                 variant="outlined"
                 density="compact"
+                :rules="validName"
             />
             
             <v-text-field 
@@ -19,6 +20,8 @@
                 label="Celular"
                 variant="outlined"
                 density="compact"
+                v-mask="['(##) #####-####', '(##) ####-####']"
+                :rules="validPhone"
             />
 
             <v-text-field 
@@ -27,6 +30,7 @@
                 label="E-mail"
                 variant="outlined"
                 density="compact"
+                :rules="validEmail"
             />
 
             <v-text-field 
@@ -84,22 +88,27 @@ import useValidation from "@/composables/useValidation";
 import User from "@/entity/User";
 import router from "@/router";
 import { useUserStore } from "@/stores/UserStore";
-import { computed, onMounted, reactive } from "vue";
+import Swal from "sweetalert2";
+import { computed, onMounted, reactive, ref } from "vue";
 import { useRoute } from "vue-router";
 
+const form = ref()
 const userStore = useUserStore()
 const route = useRoute()
 
 const { 
     required, 
-    passMin, 
+    passMinRegister, 
     minLenght, 
     phoneMin, 
     arrobaRequired
 } = useValidation()
 
-const validPass = computed(() => [ passMin, required ])
-const validOutherPass = computed(() => [ passMin, required, samePass])
+const validName = computed(() => [required, minLenght])
+const validEmail = computed(() => [required, arrobaRequired])
+const validPass = computed(() => [ passMinRegister, required ])
+const validOutherPass = computed(() => [ passMinRegister, required, samePass])
+const validPhone = computed(() => [required, phoneMin])
 
 const register = reactive({
     idProduct: '',
@@ -114,16 +123,25 @@ const register = reactive({
 const samePass = (value: string) => value == register.password || 'As senhas estão diferentes!'
 
 async function saveUser() {
-
-    const result = await userStore.saveUser(register)
-    console.log(`Usuário cadastrado: ${result}`)
-
-    //Como fakeApi não retorna usuário válido simularemos 
-    //o login com o usuário que a mesma permite validar
-    const userObj = new User('mor_2314', '83r5^_')
-    const userValidate = await userStore.singIn(userObj)
-    if(userValidate) {
-        router.push('/home')
+    debugger
+    const { valid } = await form.value.validate()
+    if(valid){
+        const result = await userStore.saveUser(register)
+        console.log(`Usuário cadastrado, id: ${result.id}`)
+    
+        //Como fakeApi não retorna usuário válido simularemos 
+        //o login com o usuário que a mesma permite validar
+        const userObj = new User('mor_2314', '83r5^_')
+        const userValidate = await userStore.singIn(userObj)
+        if(userValidate) {
+            router.push('/home')
+        }
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Ooops...',
+            text: 'Por favor complete as informações!',
+        })
     }
 }
 

@@ -2,7 +2,17 @@
     <v-card>
         <v-card-title class="mt-2 px-0">
             <h3 class="px-2">Entra na sua conta</h3>
-            <p class="sub-title px-2 mb-2">Informe o email e senha.</p>
+            <p 
+                class="sub-title px-2 mb-2"
+            >
+                Informe o email e senha.
+                <span 
+                    @click="userAuthLogin"
+                    style="cursor: pointer;"
+                >
+                    (Usuário)
+                </span>
+            </p>
         </v-card-title>
         <v-form fast-fail ref="form" @submit.prevent>
             <v-col class="px-2 mb-2">
@@ -21,7 +31,7 @@
                     v-model="user.password"
                     :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                     :type="show1 ? 'text' : 'password'"
-                    @click:append="show1 = !show1"
+                    @click:append-inner="show1 = !show1"
                     variant="outlined"
                     density="compact"
                     placeholder="Sua senha"
@@ -105,6 +115,11 @@ async function singIn() {
             text: 'Por favor complete as informações!',
         })
     }
+}
+
+function userAuthLogin() {
+    user.username = 'mor_2314'
+    user .password = '83r5^_'
 }
 </script>
 
