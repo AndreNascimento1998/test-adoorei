@@ -6,15 +6,16 @@
             <span>Seja bem vindo a sua conta de hospedagem.</span>
         </v-col>
             <v-col cols="12" sm="8" offset-sm="2">
+                <div class="embed-responsive">
                 <iframe 
-                    :width="smAndUp ? 800 : 280" 
-                    :height="smAndUp ? 615 : 300" 
+                    :height="smAndUp ? 615 : 200" 
                     src="https://www.youtube.com/embed/FMweoEi9clA" 
                     title="YouTube video player" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen>
                 </iframe>
+            </div>
             </v-col>
             <v-col cols="12" sm="8" offset-sm="2">
             <span>Caso tenha alguma dúvida, <span style="text-decoration: underline;">visite nossa central de ajuda.</span></span>
@@ -30,3 +31,19 @@ import { useDisplay } from "vuetify/lib/framework.mjs";
 
 const {smAndUp} = useDisplay()
 </script>
+
+<style scoped>
+.embed-responsive {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.embed-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100
+}
+</style>

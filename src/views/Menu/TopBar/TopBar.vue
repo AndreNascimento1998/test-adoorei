@@ -2,13 +2,13 @@
 <template>
         <v-app-bar elevation="1" class="pt-4 pa-1" height="62">
               
-        <ImgComponent
-        />
-            
+        <ImgComponent/>
+        
+        <v-spacer />
             
         <v-menu bottom >
             <template #activator="{ props }">
-                <v-btn  class="ml-16" icon v-bind="props">
+                <v-btn icon v-bind="props">
                     <v-icon size="45px">mdi-account-circle</v-icon>
                 </v-btn>
             </template>
@@ -50,7 +50,6 @@ const options = reactive([
 
 
 function loggout() {
-    debugger
     HttpToken.clearToken()
 
     router.push('/')
