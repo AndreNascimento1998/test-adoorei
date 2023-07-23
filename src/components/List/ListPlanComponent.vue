@@ -1,16 +1,26 @@
 <template>
-    <v-row class="text-center">
+    <v-row v-if="props.planList.moreUse && !route.params.id" class="text-center">
         <v-col cols="10">
-            <v-badge 
-                v-if="props.planList.moreUse && !route.params.id" 
+            <v-badge  
                 content="MAIS USADO" 
                 color="green"
                 floating
-            />
-            <br v-else/>
-
+            />        
         </v-col>
     </v-row>
+    <br  v-else />
+
+    <v-row v-show="route.params.id" class="text-center">
+        <v-col cols="8">
+            <v-badge 
+                content="PLANO ESCOLHIDO" 
+                color="black"
+                floating
+            />
+            
+        </v-col>
+    </v-row>
+
     <v-card 
         :height="props.height ? props.height : ''"
         elevation="0"
@@ -28,12 +38,12 @@
                 block 
                 variant="outlined"
             >
-                Escolher
+                Escolher esse plano
             </v-btn>
         </v-col>
 
         <v-card-text 
-            class="content-height" 
+            class="content-height pa-0" 
             :class="{'width-gradient': enableOverflow }" 
             :style="{ maxHeight: textHeight + 'px'}"
         >
