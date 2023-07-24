@@ -24,7 +24,7 @@ Código Limpo
 <img src="src/assets/readmeImg/loginLight.png">
 
 #### Home (light)
-<img src="src/assets/readmeImg/singInLight.png">
+<img src="src/assets/readmeImg/homeLight.png">
 
 #### Plan List (light)
 <img src="src/assets/readmeImg/planListLight.png">
