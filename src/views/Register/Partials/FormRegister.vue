@@ -2,12 +2,14 @@
      <v-card>
         <v-col>
             <h1>Dados Pessoais</h1>
-            <span>informe seus dados pessoais para acesso à sua conta</span>
+            <span>Informe seus dados pessoais para acesso à sua conta</span>
         </v-col>
         <v-form ref="form">
             <v-text-field 
                 v-model="register.name"
                 class="pa-3"
+                placeholder="Informe seu nome completo"
+                persistent-placeholder
                 label="Nome Completo"
                 variant="outlined"
                 density="compact"
@@ -17,6 +19,8 @@
             <v-text-field 
                 v-model="register.phone"
                 class="pa-3"
+                placeholder="(99) 99999-0000"
+                persistent-placeholder
                 label="Celular"
                 variant="outlined"
                 density="compact"
@@ -28,6 +32,8 @@
                 v-model="register.email"
                 class="pa-3"
                 label="E-mail"
+                placeholder="Informe seu e-mail"
+                persistent-placeholder
                 variant="outlined"
                 density="compact"
                 :rules="validEmail"
@@ -36,6 +42,9 @@
             <v-text-field 
                 v-model="register.password"
                 class="pa-3"
+                :append-inner-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'"
+                @click:append-inner="show1 = !show1"
                 label="Senha"
                 variant="outlined"
                 density="compact"
@@ -47,6 +56,9 @@
             <v-text-field 
                 v-model="register.validPassword"
                 class="pa-3"
+                :append-inner-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show2 ? 'text' : 'password'"
+                @click:append-inner="show2 = !show2"
                 label="Confirme sua senha"
                 variant="outlined"
                 density="compact"
@@ -68,6 +80,8 @@
                 density="compact"
                 hint="Exatamente igual ao título do site"
                 persistent-hint
+                persistent-placeholder
+                placeholder="Meu site"
             />
 
             <v-divider class="mx-4"/>
@@ -133,6 +147,8 @@ import { useRoute } from "vue-router";
 const form = ref()
 const userStore = useUserStore()
 const route = useRoute()
+const show1 = ref()
+const show2 = ref()
 
 const globalStore = useGlobalStore()
 const checkbox = ref(false)

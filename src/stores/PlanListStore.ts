@@ -16,11 +16,11 @@ export const usePlanListStore = defineStore('planList', () => {
       
           titleServers: 'Seu site no servidor <u> nos Estados Unidos. </u>',
           servers: [
-            'Servidores em nossos data centers americanos',
+            'Servidores em nossos data centers americanos;',
             'ASP, ASP.NET 2.0/3.0/3.5 e 4.0/4.5/4.5.1/4.5.2 (medium trust) ou PHP 5.3, 5.4, 5.5, 5.6, 7.0;',
-            '1 usuário de FTP para upload ou download',
-            '1 conta de e-mails profissionais',
-            '1 subdomínio gratuito'
+            '1 usuário de FTP para upload ou download;',
+            '1 conta de e-mails profissionais;',
+            '1 subdomínio gratuito;'
           ],
       
           titleApp: 'Aplicativos disponíveis',
@@ -52,11 +52,11 @@ export const usePlanListStore = defineStore('planList', () => {
           moreUse: true,
       
           servers: [
-            'Servidores em São Paulo',
+            'Servidores em São Paulo;',
             'ASP, ASP.NET 2.0/3.0/3.5 e 4.0/4.5/4.5.1/4.5.2 (medium trust) ou PHP 5.3, 5.4, 5.5, 5.6, 7.0;',
-            '10 usuários de FTP para upload ou download',
-            '30 contas de e-mails profissionais',
-            '10 subdomínios gratuitos'
+            '10 usuários de FTP para upload ou download;',
+            '30 contas de e-mails profissionais;',
+            '10 subdomínios gratuitos;'
           ],
       
           titleApp: 'Aplicativos disponíveis',
@@ -91,11 +91,11 @@ export const usePlanListStore = defineStore('planList', () => {
       
           titleServers: 'Seu site em servidores <u> no Brasil. </u>',
           servers: [
-            'Servidores em São Paulo',
+            'Servidores em São Paulo;',
             'ASP, ASP.NET 2.0/3.0/3.5 e 4.0/4.5/4.5.1/4.5.2 (medium trust) ou PHP 5.3, 5.4, 5.5, 5.6, 7.0;',
-            'Ilimitados usuários de FTP para upload ou download',
-            'Ilimitados contas de e-mails profissionais',
-            '50 subdomínios gratuitos'
+            'Ilimitados usuários de FTP para upload ou download;',
+            'Ilimitados contas de e-mails profissionais;',
+            '50 subdomínios gratuitos;'
           ],
       
           titleApp: 'Aplicativos disponíveis',

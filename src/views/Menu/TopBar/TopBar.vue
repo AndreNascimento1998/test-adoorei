@@ -36,9 +36,6 @@ import { reactive } from "vue";
 import router from "@/router";
 import HttpToken from "@/services/factory/Http/HttpToken";
 import ImgComponent from "@/components/Img/ImgComponent.vue"
-import { useDisplay } from "vuetify/lib/framework.mjs";
-
-const { smAndUp } = useDisplay()
 
 const options = reactive([
     {

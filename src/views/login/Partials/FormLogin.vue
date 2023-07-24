@@ -5,13 +5,14 @@
             <p 
                 class="sub-title px-2 mb-2"
             >
-                Informe o email e senha.
-                <span 
-                    @click="userAuthLogin"
-                    style="cursor: pointer;"
-                >
-                    (Usuário)
-                </span>
+                Para acessar sua conta informe o email e senha.
+            </p>
+            <p 
+                class="px-2"
+                @click="userAuthLogin"
+                style="cursor: pointer;"
+            >
+                (Usuário Autenticado)
             </p>
         </v-card-title>
         <v-form fast-fail ref="form" @submit.prevent>
@@ -83,7 +84,7 @@ import { computed, reactive, ref } from "vue";
 import { useDisplay } from "vuetify/lib/framework.mjs";
 import useValidation from '@/composables/useValidation'
 import Swal from 'sweetalert2'
-
+ 
 const { 
     required, 
     passMin, 
