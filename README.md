@@ -15,7 +15,7 @@ Componentização
 Reaproveitamento de Rotas
 Código Limpo
 ```
-[Consumindo API](https://fakestoreapi.com/)
+[Consumindo API](https://fakestoreapi.com/docs#user)
 
 ## Project setup
 ```
