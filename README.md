@@ -23,6 +23,14 @@ Código Limpo
 #### Login (light)
 <img src="src/assets/readmeImg/loginLight.png">
 
+#### Home (light)
+<img src="src/assets/readmeImg/singInLight.png">
+
+#### Plan List (light)
+<img src="src/assets/readmeImg/planListLight.png">
+
+#### Register (light)
+<img src="src/assets/readmeImg/registerLight.png">
 
 ## Project setup
 ```
