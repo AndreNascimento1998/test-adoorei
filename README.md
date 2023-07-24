@@ -21,7 +21,8 @@ Código Limpo
 ### Images
 
 #### Login (light)
-<img src="src/assets/readmeImg/loginLight.png>
+<img src="src/assets/readmeImg/loginLight.png">
+
 
 ## Project setup
 ```
