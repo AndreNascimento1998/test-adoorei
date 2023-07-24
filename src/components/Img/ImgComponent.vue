@@ -3,7 +3,7 @@
         style="cursor: pointer;"
         @click="globalStore.swapTheme"
         :max-width="smAndUp ? '20%' : '50%'"
-        class="mb-6" 
+        class="mb-4" 
         :src="logo" 
     />
 </template>

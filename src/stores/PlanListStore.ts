@@ -25,20 +25,20 @@ export const usePlanListStore = defineStore('planList', () => {
       
           titleApp: 'Aplicativos disponíveis',
           appAvaliable: [
-            'Wordpress', 
-            'Drupal', 
+            'Wordpress;', 
+            'Drupal;', 
             'Entre outros...'
           ],
       
           titleMore: 'Você ainda tem',
           more: [
-            'Webmail RoundCube', 
-            'AntiSpam', 
-            'Painel de gerenciamento de DNS',
-            'Painel de controle Web',
-            'Configuração de PHP',
-            'Certificado SSL Grátis',
-            'Transferência ilimitada'
+            'Webmail RoundCube;', 
+            'AntiSpam;', 
+            'Painel de gerenciamento de DNS;',
+            'Painel de controle Web;',
+            'Configuração de PHP;',
+            'Certificado SSL Grátis;',
+            'Transferência ilimitada.'
           ],
         },
         {
@@ -61,8 +61,8 @@ export const usePlanListStore = defineStore('planList', () => {
       
           titleApp: 'Aplicativos disponíveis',
           appAvaliable: [
-            'Wordpress', 
-            'Drupal', 
+            'Wordpress;', 
+            'Drupal;', 
             'Entre outros...'
           ],
                   
@@ -71,13 +71,13 @@ export const usePlanListStore = defineStore('planList', () => {
       
           titleMore: 'Você ainda tem',
           more: [
-            'Webmail RoundCube', 
-            'AntiSpam', 
-            'Painel de gerenciamento de DNS',
-            'Painel de controle Web',
-            'Configuração de PHP',
-            'Certificado SSL Grátis',
-            'Transferência ilimitada'
+            'Webmail RoundCube;', 
+            'AntiSpam;', 
+            'Painel de gerenciamento de DNS;',
+            'Painel de controle Web;',
+            'Configuração de PHP;',
+            'Certificado SSL Grátis;',
+            'Transferência ilimitada.'
           ],
         },
         {
@@ -100,8 +100,8 @@ export const usePlanListStore = defineStore('planList', () => {
       
           titleApp: 'Aplicativos disponíveis',
           appAvaliable: [
-            'Wordpress', 
-            'Drupal', 
+            'Wordpress;', 
+            'Drupal;', 
             'Entre outros...'
           ],
       
@@ -110,13 +110,13 @@ export const usePlanListStore = defineStore('planList', () => {
       
           titleMore: 'Você ainda tem',
           more: [
-            'Webmail RoundCube', 
-            'AntiSpam', 
-            'Painel de gerenciamento de DNS',
-            'Painel de controle Web',
-            'Configuração de PHP',
-            'Certificado SSL Grátis',
-            'Transferência ilimitada'
+            'Webmail RoundCube;', 
+            'AntiSpam;', 
+            'Painel de gerenciamento de DNS;',
+            'Painel de controle Web;',
+            'Configuração de PHP;',
+            'Certificado SSL Grátis;',
+            'Transferência ilimitada.'
           ],
         },
       ]);

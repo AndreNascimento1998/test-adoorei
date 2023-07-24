@@ -1,10 +1,10 @@
 <template>
-    <v-container class="mt-16">
+    <v-container class="mt-10">
         <v-row class="mt-4">
-        <v-col cols="12" sm="8" offset-sm="2">
-            <h1>Olá {{ name }},</h1>
-            <span>Seja bem vindo a sua conta de hospedagem.</span>
-        </v-col>
+            <v-col cols="12" sm="8" offset-sm="2">
+                <h1>Olá {{ nameUpperCase }},</h1>
+                <span>Seja bem vindo a sua conta de hospedagem.</span>
+            </v-col>
             <v-col cols="12" sm="8" offset-sm="2">
                 <div class="embed-responsive">
                 <iframe 
@@ -27,9 +27,12 @@
 
 <script setup lang="ts">
 import { useUserStore } from "@/stores/UserStore";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 const userStore = useUserStore()
+const nameUpperCase = computed(() => {
+    return name.value.charAt(0).toUpperCase() + name.value.slice(1);
+})
 const name = ref('')
 
 onMounted(async () => {
