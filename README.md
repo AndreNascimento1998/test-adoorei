@@ -1,4 +1,21 @@
-# test-plan
+# Teste de Auth, api-rest
+
+## Descrição 
+```
+VueJS 3
+TypeScript
+HTML
+CSS
+Vuetify
+Axios
+Pinia
+Vue-Router
+Auth
+Componentização
+Reaproveitamento de Rotas
+Código Limpo
+```
+[Consumindo API](https://fakestoreapi.com/)
 
 ## Project setup
 ```
